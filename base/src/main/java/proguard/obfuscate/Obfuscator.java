@@ -644,7 +644,7 @@ public class Obfuscator implements Pass
         // Rename the source file attributes, if requested.
         if (configuration.newSourceFileAttribute != null)
         {
-            appView.programClassPool.classesAccept(new SourceFileRenamer(configuration.newSourceFileAttribute));
+            appView.programClassPool.classesAccept(new OriginalClassNameFilter(null, new SourceFileRenamer(configuration.newSourceFileAttribute)));
         }
 
         // Remove unused constants.
